@@ -1,0 +1,6 @@
+{
+  "name": "LPD Digital - Criador de Sites",
+  "description": "Premium Landing Page optimized for high conversions, designed for digital creator Lucas Pires Dorneles (LPD Digital). Focuses on high-performance websites with credibility.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
