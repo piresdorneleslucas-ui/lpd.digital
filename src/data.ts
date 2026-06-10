@@ -12,9 +12,8 @@ export const TAGLINE = "Sites que geram credibilidade e vendas";
 export const SECTOR = "Criador de conteúdo digital";
 export const INSTAGRAM_STATS = {
   username: "lpd.digital.site",
-  posts: 1,
-  followers: 4,
-  following: 51,
+  posts: "+10k",
+  followers: "+200k",
 };
 export const WHATSAPP_NUMBER = "5599038259";
 
@@ -172,16 +171,16 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     id: "faq_3",
     question: "E após o site ficar pronto, tenho garantia ou suporte?",
-    answer: "Você tem 30 dias de suporte total gratuito e garantia de funcionamento contra qualquer tipo de bug. Também oferecemos planos mensais opcionais de manutenção preventiva, atualizações de novos conteúdos e relatórios de tráfego."
+    answer: "A LPD Digital oferece suporte e garantia totalmente ilimitados! Cuidamos de qualquer detalhe técnico, atualizações de segurança e garantimos o perfeito funcionamento do seu site continuamente, sem custos adicionais."
   },
   {
     id: "faq_4",
     question: "Qual o prazo de entrega médio?",
-    answer: "No caso de uma Landing Page Premium, o prazo médio é de 7 a 14 dias úteis. Projetos maiores, como sites corporativos de grande porte ou lojas virtuais robustas, levam entre 20 a 35 dias úteis, dependendo do escopo definido."
+    answer: "Nosso prazo de entrega é de no máximo 24 horas! Garantimos foco total para disponibilizar seu projeto completo no ar com extrema agilidade e sem comprometer nossa qualidade 100% autoral."
   },
   {
     id: "faq_5",
     question: "Preciso pagar mensalidade obrigatória pelo site?",
-    answer: "Não existe mensalidade obrigatória sobre o desenvolvimento do site. Os únicos custos fixos recorrentes no mercado digital são a hospedagem do site (onde os arquivos ficam guardados) e o registro do seu domínio (ex: seunome.com.br, aprox. R$ 40/ano). Iremos te orientar a configurar ambos sem taxas ocultas."
+    answer: "Não! Com a LPD Digital as mensalidades de hospedagem, domínio e suporte técnico recorrente são totalmente por nossa conta. Você realiza apenas o investimento único no projeto e nós cuidamos de toda a estrutura mensal para você."
   }
 ];

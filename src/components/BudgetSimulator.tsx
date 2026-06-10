@@ -19,16 +19,7 @@ export default function BudgetSimulator() {
 
   // Delivery timelines depending on type
   const getTimeline = (typeId: string) => {
-    switch (typeId) {
-      case "landing_page":
-        return "7 a 14 dias úteis";
-      case "institutional":
-        return "15 a 22 dias úteis";
-      case "ecommerce":
-        return "20 a 30 dias úteis";
-      default:
-        return "Sob consulta especial";
-    }
+    return "No máximo 24h!";
   };
 
   // Toggle addon
@@ -93,16 +84,16 @@ Gostaria de solicitar um orçamento formal e agendar uma rápida conversa de ali
         {/* Header content section */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/5 border border-red-500/10 mb-4 animate-pulse">
-            <DollarSign className="w-3.5 h-3.5 text-red-500" />
-            <span className="text-[11px] font-mono tracking-widest text-red-400 uppercase">Simulador Interativo</span>
+            <Sparkles className="w-3.5 h-3.5 text-red-500" />
+            <span className="text-[11px] font-mono tracking-widest text-red-400 uppercase">Briefing Interativo</span>
           </div>
           
           <h2 className="text-4xl sm:text-5xl font-display font-black tracking-tight leading-none mb-6 text-white text-center">
-            Planeje seu <span className="bg-gradient-to-r from-red-600 to-red-450 bg-clip-text text-transparent">investimento real</span>
+            Monte seu <span className="bg-gradient-to-r from-red-600 to-red-450 bg-clip-text text-transparent">projeto sob medida</span>
           </h2>
           
           <p className="text-zinc-400 text-lg font-light">
-            Selecione as soluções ideais para o seu modelo de negócios e envie seu briefing em 5 segundos por WhatsApp de forma profissional.
+            Selecione as soluções e adicionais ideais para o seu modelo de negócios e envie seu briefing em segundos por WhatsApp para receber seu orçamento personalizado.
           </p>
         </div>
 
@@ -135,10 +126,10 @@ Gostaria de solicitar um orçamento formal e agendar uma rápida conversa de ali
                       }`}
                     >
                       <div className="flex justify-between items-start mb-3">
-                        <span className={`text-xs font-semibold py-1 px-2.5 rounded-md ${
-                          isSelected ? "bg-red-500/20 text-red-300" : "bg-zinc-900 text-zinc-500"
+                        <span className={`text-[10px] font-mono uppercase tracking-wider font-semibold py-1 px-2.5 rounded-md ${
+                          isSelected ? "bg-red-500/20 text-red-300" : "bg-zinc-900 text-zinc-650"
                         }`}>
-                          {type.priceEstimate}
+                          {isSelected ? "Selecionado" : "Disponível"}
                         </span>
                         
                         {isSelected && (
@@ -185,7 +176,6 @@ Gostaria de solicitar um orçamento formal e agendar uma rápida conversa de ali
                           {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
                         </div>
                         <div>
-                          <p className="text-xs font-mono text-red-400 mb-0.5 font-semibold">+ R$ {addon.fixedPrice}</p>
                           <h4 className="text-sm font-semibold text-white mb-0.5">{addon.name}</h4>
                           <p className="text-zinc-500 text-[11px] font-light leading-relaxed">{addon.description}</p>
                         </div>
@@ -214,11 +204,11 @@ Gostaria de solicitar um orçamento formal e agendar uma rápida conversa de ali
                     <span className="text-[10px] font-mono text-zinc-500 uppercase">PRODUTO BASE</span>
                     <p className="text-sm font-bold text-white">{selectedType.name}</p>
                   </div>
-                  <span className="text-xs font-mono text-zinc-400">{selectedType.priceEstimate}</span>
+                  <span className="text-xs font-mono text-zinc-450 uppercase">Selecionado</span>
                 </div>
 
                 <div className="border-t border-white/5 pt-4">
-                  <span className="text-[10px] font-mono text-zinc-500 uppercase block mb-2">PRAZO ESPECIAL DE ENTREGA</span>
+                  <span className="text-[10px] font-mono text-zinc-500 uppercase block mb-2">PRAZO DE ENTREGA ESTIMADO</span>
                   <div className="inline-flex items-center gap-1.5 text-xs text-red-400 font-bold bg-red-950/20 px-2.5 py-1 rounded-md border border-red-900/30">
                     <Calendar className="w-3.5 h-3.5" />
                     {getTimeline(selectedType.id)}
@@ -227,15 +217,14 @@ Gostaria de solicitar um orçamento formal e agendar uma rápida conversa de ali
 
                 {selectedAddons.length > 0 && (
                   <div className="border-t border-white/5 pt-4">
-                    <span className="text-[10px] font-mono text-zinc-500 uppercase block mb-3">ADICIONAIS EXTRAS</span>
+                    <span className="text-[10px] font-mono text-zinc-500 uppercase block mb-3">ADICIONAIS SELECIONADOS</span>
                     <ul className="space-y-2">
                       {selectedAddons.map((addon) => (
                         <li key={addon.id} className="flex items-center justify-between text-xs text-zinc-400">
-                          <span className="flex items-center gap-1.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
+                          <span className="flex items-center gap-1.5 text-left">
+                            <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0" />
                             {addon.name}
                           </span>
-                          <span className="text-[10px] text-zinc-500 font-mono">+ R$ {addon.fixedPrice}</span>
                         </li>
                       ))}
                     </ul>
@@ -245,21 +234,16 @@ Gostaria de solicitar um orçamento formal e agendar uma rápida conversa de ali
 
               {/* Box of cost estimation projection */}
               <div className="bg-[#050507] border border-white/5 rounded-xl p-5 mb-8 text-center relative group">
-                <span className="text-[9px] font-mono text-red-550 bg-red-950/30 border border-red-900/30 px-2 py-0.5 rounded-full inline-block mb-3 uppercase tracking-wider">
-                  Investimento Médio Projetado
+                <span className="text-[9px] font-mono text-red-500 bg-red-950/30 border border-red-900/35 px-2 py-0.5 rounded-full inline-block mb-3 uppercase tracking-wider">
+                  Projeto Exclusivo
                 </span>
                 
-                {selectedType.id === "custom_app" ? (
-                  <div className="text-3xl font-display font-black text-white">Sob Consulta</div>
-                ) : (
-                  <div>
-                    <span className="text-xs text-zinc-400 font-sans mr-1">A partir de</span>
-                    <span className="text-4xl font-display font-black text-white">R$ {calculatedBudget.toLocaleString("pt-BR")}</span>
-                    <span className="text-zinc-500 text-[10px] block mt-1 hover:text-white transition-colors cursor-help">
-                      *Impostos e hospedagem calculados à parte
-                    </span>
-                  </div>
-                )}
+                <div>
+                  <div className="text-2xl font-display font-black text-white">Sob Consulta</div>
+                  <span className="text-zinc-500 text-[10.5px] block mt-1 px-1">
+                    Orçamento calculado sob medida, 100% livre de templates prontos.
+                  </span>
+                </div>
               </div>
 
               {/* CTA Send to WhatsApp button */}

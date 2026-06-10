@@ -9,8 +9,7 @@ import {
   Instagram, Heart, Sparkles, Send, 
   MapPin, Award, CheckCircle, MessageCircle 
 } from "lucide-react";
-import { BRAND_NAME, OWNER_NAME, INSTAGRAM_STATS, getWhatsAppLink } from "../data";
-import avatarImg from "../assets/images/lucas_avatar_1780949918008.png";
+import { BRAND_NAME, OWNER_NAME, INSTAGRAM_STATS, getWhatsAppLink, LOGO_URL } from "../data";
 
 export default function AboutSection() {
   return (
@@ -44,7 +43,7 @@ export default function AboutSection() {
                 <div className="relative mt-4 mb-4">
                   <div className="absolute -inset-1.5 bg-gradient-to-r from-red-600 to-red-500 rounded-full blur opacity-40 group-hover:opacity-65 transition-opacity" />
                   <img
-                    src={avatarImg}
+                    src={LOGO_URL}
                     alt={OWNER_NAME}
                     referrerPolicy="no-referrer"
                     className="w-28 h-28 rounded-full border-2 border-[#050505] relative object-cover bg-zinc-800 scale-100 group-hover:scale-105 transition-all duration-300"
@@ -56,18 +55,14 @@ export default function AboutSection() {
                 <p className="text-xs font-mono text-zinc-500 mb-4">{BRAND_NAME} • Tech & Design</p>
 
                 {/* Personal branding badges/stats */}
-                <div className="grid grid-cols-3 gap-6 py-3 px-5 bg-zinc-900/40 border border-white/5 rounded-2xl w-full mb-6">
-                  <div className="text-center">
+                <div className="grid grid-cols-2 gap-6 py-3 px-5 bg-zinc-900/40 border border-white/5 rounded-2xl w-full mb-6">
+                  <div className="text-center border-r border-white/5 pr-3">
                     <span className="text-sm font-black text-white block">{INSTAGRAM_STATS.posts}</span>
                     <span className="text-[9px] text-zinc-500 font-mono uppercase tracking-wider">Post</span>
                   </div>
-                  <div className="text-center border-x border-white/5">
+                  <div className="text-center pl-3">
                     <span className="text-sm font-black text-white block">{INSTAGRAM_STATS.followers}</span>
                     <span className="text-[9px] text-zinc-500 font-mono uppercase tracking-wider">Seguidor</span>
-                  </div>
-                  <div className="text-center">
-                    <span className="text-sm font-black text-white block">{INSTAGRAM_STATS.following}</span>
-                    <span className="text-[9px] text-zinc-500 font-mono uppercase tracking-wider">Seguindo</span>
                   </div>
                 </div>
 
